@@ -59,6 +59,7 @@ def ingresar_alumno():
         legajo = int(input("Ingrese un número de legajo: (0 para salir del programa)"))
     
     print("Programa FINALIZADO.")
+    print("")
     return alumnos
 
 
@@ -75,8 +76,19 @@ def legajo_menor(lista_alumnos):
             legajo_menor = alumno
     return legajo_menor
 
+def nombre_largo(lista_alumnos):
+    nombre_largo = lista_alumnos[0]
+    for alumno in lista_alumnos[1:]:
+        if len(alumno.nombre) > len(nombre_largo.nombre):
+            nombre_largo = alumno
+    return nombre_largo
+
 lista_alumnos = ingresar_alumno()
 imprimir_alumnos()
+print("")
 alumno_menor_legajo = legajo_menor(lista_alumnos)
 print(f"El legajo más chico es: {alumno_menor_legajo.legajo}, Nombre: {alumno_menor_legajo.nombre}, Apellido: {alumno_menor_legajo.apellido}")
-    
+print("")
+alumno_nombre_largo = nombre_largo(lista_alumnos)
+print(f"El nombre más largo es: {alumno_nombre_largo.nombre}")    
+print("")
