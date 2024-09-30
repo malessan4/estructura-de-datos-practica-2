@@ -84,7 +84,7 @@ def nombre_largo(lista_alumnos):
             nombre_largo = alumno
     return nombre_largo
 
-def verifica_contraseña(alumno):
+def controlar_clave(alumno):
     contraseña = alumno.contraseña
     if len(contraseña) < 6:
         print("ERROR, contraseña demasiado corta")
@@ -92,7 +92,18 @@ def verifica_contraseña(alumno):
         print("ERROR, la contraseña debe tener un digito al final")
     else:
         print("Contraseña correcta")  
-    
+
+
+def verifica_contraseña(lista_alumnos):       
+    for alumno in lista_alumnos:  
+        contraseña = alumno.contraseña
+        if len(contraseña) < 6:
+            print("ERROR, contraseña demasiado corta")
+        elif not contraseña[-1].isdigit():
+            print("ERROR, la contraseña debe tener un digito al final")
+        else:
+            print("Contraseña correcta")    
+
 
 lista_alumnos = ingresar_alumno()
 imprimir_alumnos()
@@ -106,5 +117,8 @@ alumno_nombre_largo = nombre_largo(lista_alumnos)
 print(f"El nombre más largo es: {alumno_nombre_largo.nombre}")    
 print("")
 
-verifica_contraseña(lista_alumnos[0])
+controlar_clave(lista_alumnos[0])
+print("")
+
+verifica_contraseña(lista_alumnos)
 print("")
