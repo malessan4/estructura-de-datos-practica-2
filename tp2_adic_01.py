@@ -28,6 +28,7 @@ Ejercicio 1
     f) Realice una función llamada verificar_claves que recibe como parámetro una lista de alumnos, la
     función deberá controlar por cada alumno si la contraseña que usa cumple con: ser mayor a 6
     caracteres y terminar con un número.
+    
     Construir un menú, el menú deberá permitir ingresar 5 opciones, La opción 0 permite salir del menú,
     el resto de las opciones permiten:
     imprimir los datos de todos los alumnos con el formato pedido en el punto a)
@@ -83,12 +84,27 @@ def nombre_largo(lista_alumnos):
             nombre_largo = alumno
     return nombre_largo
 
+def verifica_contraseña(alumno):
+    contraseña = alumno.contraseña
+    if len(contraseña) < 6:
+        print("ERROR, contraseña demasiado corta")
+    elif not contraseña[-1].isdigit():
+        print("ERROR, la contraseña debe tener un digito al final")
+    else:
+        print("Contraseña correcta")  
+    
+
 lista_alumnos = ingresar_alumno()
 imprimir_alumnos()
 print("")
+
 alumno_menor_legajo = legajo_menor(lista_alumnos)
 print(f"El legajo más chico es: {alumno_menor_legajo.legajo}, Nombre: {alumno_menor_legajo.nombre}, Apellido: {alumno_menor_legajo.apellido}")
 print("")
+
 alumno_nombre_largo = nombre_largo(lista_alumnos)
 print(f"El nombre más largo es: {alumno_nombre_largo.nombre}")    
+print("")
+
+verifica_contraseña(lista_alumnos[0])
 print("")
