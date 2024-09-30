@@ -68,6 +68,14 @@ def imprimir_alumnos():
         print(f"Legajo: {alumno.legajo}, Nombre: {alumno.nombre}, Apellido: {alumno.apellido}, Contraseña: {alumno.contraseña}")
         
         
+def legajo_menor(lista_alumnos):
+    legajo_menor = lista_alumnos[0]
+    for alumno in lista_alumnos[1:]:
+        if alumno.legajo < legajo_menor.legajo:
+            legajo_menor = alumno
+    return legajo_menor
+
 lista_alumnos = ingresar_alumno()
 imprimir_alumnos()
+print(f"El legajo más chico es: {legajo_menor}")
     
