@@ -77,5 +77,6 @@ def legajo_menor(lista_alumnos):
 
 lista_alumnos = ingresar_alumno()
 imprimir_alumnos()
-print(f"El legajo más chico es: {legajo_menor}")
+alumno_menor_legajo = legajo_menor(lista_alumnos)
+print(f"El legajo más chico es: {alumno_menor_legajo.legajo}, Nombre: {alumno_menor_legajo.nombre}, Apellido: {alumno_menor_legajo.apellido}")
     
