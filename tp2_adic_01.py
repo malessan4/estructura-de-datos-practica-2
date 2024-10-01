@@ -44,11 +44,28 @@ class Alumno(object):
         self.legajo = legajo
         self.apellido = apellido
         self.contraseña = contraseña
-    
+
+def menu():
+    opcion = int(input("Ingrese una opcion: "))
+    if opcion == 0:
+        print("FIN DEL PROGRAMA")
+    elif opcion == 1:
+        imprimir_alumnos()
+    elif opcion == 2:
+        alumno_menor = legajo_menor(lista_alumnos)
+        print(f"El legajo más chico es: {alumno_menor.legajo}, Nombre: {alumno_menor.nombre}, Apellido: {alumno_menor.apellido}")    
+    elif opcion == 3:
+        alumno_nombre_largo = nombre_largo(lista_alumnos)
+        print(f"El nombre más largo es del alumno: {alumno_nombre_largo.legajo}, Nombre: {alumno_nombre_largo.nombre}, Apellido: {alumno_nombre_largo.apellido}")
+    elif opcion == 4:
+        verifica_contraseña(lista_alumnos)
+    else:
+        print("FIN DEL PROGRAMA")
+        
 
 def ingresar_alumno():
     alumnos = []
-    legajo = int(input("Ingrese un número de legajo: (0 para salir del programa) "))
+    legajo = int(input("Ingrese un número de legajo: (0 para salir del programa)  "))
     while legajo != 0:
         nombre = input("Ingrese el nombre: ")
         apellido = input("Ingrese el apellido: ")
@@ -77,6 +94,7 @@ def legajo_menor(lista_alumnos):
             legajo_menor = alumno
     return legajo_menor
 
+
 def nombre_largo(lista_alumnos):
     nombre_largo = lista_alumnos[0]
     for alumno in lista_alumnos[1:]:
@@ -104,10 +122,24 @@ def verifica_contraseña(lista_alumnos):
         else:
             print("Contraseña correcta")    
 
+print("Bienvenido, primero ingresemos los datos de los alumnos: ")
+
 
 lista_alumnos = ingresar_alumno()
-imprimir_alumnos()
 print("")
+
+print("Ingrese 1 para imprimir los datos de los alumnos: ")
+print("Ingrese 2 para imprimir los datos del alumno con legajo más chico: ")
+print("Ingrese 3 para imprimir los datos del alumno con el nombre más largo: ")
+print("Ingrese 4 para verificar si todas las contraseñas de los alumnos es corecta: ")
+print("Ingrese 0 para salir del programa")
+print("")
+
+menu()
+
+
+"""
+imprimir_alumnos()
 
 alumno_menor_legajo = legajo_menor(lista_alumnos)
 print(f"El legajo más chico es: {alumno_menor_legajo.legajo}, Nombre: {alumno_menor_legajo.nombre}, Apellido: {alumno_menor_legajo.apellido}")
@@ -122,3 +154,4 @@ print("")
 
 verifica_contraseña(lista_alumnos)
 print("")
+"""
