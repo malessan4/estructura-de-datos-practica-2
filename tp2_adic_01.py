@@ -76,7 +76,7 @@ def ingresar_alumno():
         
         legajo = int(input("Ingrese un número de legajo: (0 para salir del programa)"))
     
-    print("Programa FINALIZADO.")
+    print("Programa para ingresar alumnos FINALIZADO.")
     print("")
     return alumnos
 
@@ -116,11 +116,11 @@ def verifica_contraseña(lista_alumnos):
     for alumno in lista_alumnos:  
         contraseña = alumno.contraseña
         if len(contraseña) < 6:
-            print("ERROR, contraseña demasiado corta")
+            print(f"ERROR, contraseña de {alumno.nombre}, {alumno.apellido} demasiado corta")
         elif not contraseña[-1].isdigit():
             print("ERROR, la contraseña debe tener un digito al final")
         else:
-            print("Contraseña correcta")    
+            print(f"Contraseña de {alumno.nombre}, {alumno.apellido} es correcta")    
 
 print("Bienvenido, primero ingresemos los datos de los alumnos: ")
 
